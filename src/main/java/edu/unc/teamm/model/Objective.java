@@ -37,6 +37,22 @@ public class Objective {
         this.parent_goal = null;
     }
 
+    public Objective(Objective objective){
+        title = objective.title;
+        status = objective.status;
+        timeframe_upper = objective.timeframe_upper;
+        timeframe_lower = objective.timeframe_lower;
+        parent_goal = objective.parent_goal;
+    }
+
+    public void update(Objective objective){
+        title = objective.title;
+        status = objective.status;
+        timeframe_upper = objective.timeframe_upper;
+        timeframe_lower = objective.timeframe_lower;
+        parent_goal = objective.parent_goal;
+    }
+
     public String getId(){
         return id; }
 
