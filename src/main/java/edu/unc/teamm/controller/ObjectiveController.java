@@ -1,9 +1,7 @@
 package edu.unc.teamm.controller;
 import edu.unc.teamm.model.Objective;
 import edu.unc.teamm.repository.ObjectiveRepository;
-import edu.unc.teamm.repository.TaskRepository;
-import edu.unc.teamm.model.Task;
-import org.apache.coyote.Response;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -11,7 +9,6 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
-import javax.swing.text.html.Option;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
@@ -29,7 +26,7 @@ public class ObjectiveController {
         logger.info("Fetch all objectives");
         List<Objective> objs = new ArrayList<>();
         if (title == null)
-            repository.findAll().forEach(objs::add);
+            objs.addAll(repository.findAll());
         else
             repository.findByTitleContaining(title).forEach(objs::add);
 
@@ -56,6 +53,7 @@ public class ObjectiveController {
             Objective newObj = repository.save(new Objective(objective));
             return new ResponseEntity<>(newObj, HttpStatus.OK);
         }
+        //todo vague catch
         catch (Exception e){
             logger.info(e.toString());
             return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
@@ -73,6 +71,20 @@ public class ObjectiveController {
         }
         else return new ResponseEntity<>(HttpStatus.NOT_FOUND);
     }
+
+    @DeleteMapping("/objectives/{id}")
+    public ResponseEntity<HttpStatus> deleteObjective(@PathVariable("id") String id){
+        try{
+            repository.deleteById(id);
+            return new ResponseEntity<>(HttpStatus.OK);
+        }
+        //todo vague catch
+        catch (Exception e){
+            return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
+        }
+    }
+
+    //todo delete mapping for all obj?
 
 
 }

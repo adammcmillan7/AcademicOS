@@ -8,5 +8,4 @@ import java.util.List;
 public interface ObjectiveRepository extends MongoRepository<Objective, String> {
     List<Objective> findByTitleContaining(String title);
 
-    List<Objective> findByCategory(String category);
 }
