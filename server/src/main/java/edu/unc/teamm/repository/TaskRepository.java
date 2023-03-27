@@ -9,4 +9,13 @@ public interface TaskRepository extends MongoRepository<Task, String> {
     List<Task> findByTitleContaining(String title);
 
     List<Task> findByCategory(String category);
+
+    List<Task> findByTitle(String title);
+
+    List <Task> findByDueDate(String dueDate);
+
+    List <Task> findByDoDate(String doDate);
+
+    List<Task> findByPriority(String priority);
+
 }

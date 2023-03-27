@@ -21,6 +21,56 @@ public class TaskController {
     @Autowired
     TaskRepository repository;
 
+    // get queries for id, title, category, duedate, dodate, priority
+
+    @GetMapping("/tasks/priority/{priority}")
+    public ResponseEntity<List<Task>> getTaskByPriority(@PathVariable("priority") String priority) {
+        List<Task> tasks = new ArrayList<>();
+        if (priority != null)
+            tasks = repository.findByPriority(priority);
+
+        if (tasks.isEmpty())
+            return new ResponseEntity<>(HttpStatus.NO_CONTENT);
+
+        return new ResponseEntity<>(tasks, HttpStatus.OK);
+    }
+
+    @GetMapping("/tasks/doDate/{doDate}")
+    public ResponseEntity<List<Task>> getTaskByDoDate(@PathVariable("doDate") String doDate) {
+        List<Task> tasks = new ArrayList<>();
+        if (doDate != null)
+            tasks = repository.findByDoDate(doDate);
+
+        if (tasks.isEmpty())
+            return new ResponseEntity<>(HttpStatus.NO_CONTENT);
+
+        return new ResponseEntity<>(tasks, HttpStatus.OK);
+    }
+
+    @GetMapping("/tasks/dueDate/{dueDate}")
+    public ResponseEntity<List<Task>> getTaskByDueDate(@PathVariable("dueDate") String dueDate) {
+        List<Task> tasks = new ArrayList<>();
+        if (dueDate != null)
+            tasks = repository.findByDueDate(dueDate);
+
+        if (tasks.isEmpty())
+            return new ResponseEntity<>(HttpStatus.NO_CONTENT);
+
+        return new ResponseEntity<>(tasks, HttpStatus.OK);
+    }
+
+
+    @GetMapping("/tasks/title/{title}")
+    public ResponseEntity<List<Task>> getTaskByTitle(@PathVariable("title") String title) {
+        List<Task> tasks = new ArrayList<>();
+        if (title != null)
+            tasks = repository.findByTitle(title);
+
+        if (tasks.isEmpty())
+            return new ResponseEntity<>(HttpStatus.NO_CONTENT);
+
+        return new ResponseEntity<>(tasks, HttpStatus.OK);
+    }
 
     @GetMapping("/tasks/category/{category}")
     public ResponseEntity<List<Task>> getTaskByCategory(@PathVariable("category") String category) {
@@ -58,6 +108,8 @@ public class TaskController {
 
         return new ResponseEntity<>(HttpStatus.NO_CONTENT);
     }
+
+    // post query
 
     @PostMapping("/tasks")
     public ResponseEntity<Task> createTask(@RequestBody Task task) {
