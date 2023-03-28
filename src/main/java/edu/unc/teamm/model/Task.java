@@ -4,21 +4,23 @@ package edu.unc.teamm.model;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
+import java.time.LocalTime;
+
 @Document(collection = "tasks")
 public class Task {
     @Id //assign unique ID everytime a new Task collection entry is created
     private String id;
 
     private String title;
-    private String dueDate;
-    private String doDate;
+    private LocalTime dueDate;
+    private LocalTime doDate;
     private String priority;
     private String description;
     private String category;
 
     public Task(){}
 
-    public Task(String title, String dueDate, String doDate, String priority, String description, String category) {
+    public Task(String title, LocalTime dueDate, LocalTime doDate, String priority, String description, String category) {
         this.title = title;
         this.dueDate = dueDate;
         this.doDate = doDate;
@@ -59,20 +61,20 @@ public class Task {
     }
 
     //due date
-    public String getDueDate() {
+    public LocalTime getDueDate() {
         return dueDate;
     }
 
-    public void setDueDate(String dueDate) {
+    public void setDueDate(LocalTime dueDate) {
         this.dueDate = dueDate;
     }
 
     //do date
-    public String getDoDate() {
+    public LocalTime getDoDate() {
         return doDate;
     }
 
-    public void setDoDate(String doDate) {
+    public void setDoDate(LocalTime doDate) {
         this.doDate = doDate;
     }
 

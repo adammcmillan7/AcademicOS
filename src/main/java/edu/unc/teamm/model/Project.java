@@ -2,6 +2,7 @@ package edu.unc.teamm.model;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
+import java.time.LocalTime;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -11,13 +12,13 @@ public class Project {
     private String id;
 
     private String title;
-    private String dueDate;
+    private LocalTime dueDate;
     private String category;
     private List<Task> relatedTasks; // each project should have some tasks/steps in the project
 
     public Project(){}
 
-    public Project(String title, String dueDate, String category){
+    public Project(String title, LocalTime dueDate, String category){
         this.title = title;
         this.dueDate = dueDate;
         this.category = category;
@@ -45,8 +46,8 @@ public class Project {
 
     public void setTitle(String title){this.title = title;}
 
-    public String getDueDate(){return this.dueDate;}
-    public void setDueDate(String dueDate){this.dueDate = dueDate;}
+    public LocalTime getDueDate(){return this.dueDate;}
+    public void setDueDate(LocalTime dueDate){this.dueDate = dueDate;}
 
     public String getCategory(){return this.category;}
     public void setCategory(String category){ this.category = category;}
