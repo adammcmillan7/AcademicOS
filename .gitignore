@@ -5,3 +5,6 @@ target
 compiler.xml
 encodings.xml
 misc.xml
+
+### ENV Files ###
+.env
