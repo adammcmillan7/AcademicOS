@@ -1,0 +1,277 @@
+/*gloable seletor which is used to give value to multiple elements at one go*/
+*{
+    /* global seletor will override the values any other part in css file*/
+    
+    margin: 0;
+    padding: 0; /*reset all elements' padding and margin*/
+    box-sizing: border-box;
+}
+
+.container{
+    max-width: 1500px; /* compare it with width*/
+    margin: 0 auto; /* top and bottom are zero and left right are auto, just equals to 下面两排 */
+    margin-left: auto;
+    margin-right: auto;
+    /* auto -> make the buttons all the way to the right */
+}
+
+.header{
+    margin-bottom: 40px; /*40px not 40 px*/
+    padding: 10px;
+    /* flex box gives us methods to aligh items vertically and horizontally */
+    display: flex; /* flex box , div and button are the two flex items of header*/
+    align-items: center; /* vertically center with one another */
+    justify-content: space-between;     /* horizontally place space between the items in an even way */
+ 
+}
+
+.logo{
+
+    display: flex;
+    align-items: center;
+    gap: 16px; /* gap between img and title */
+
+}
+
+.logo img{
+    /* descendant selector */
+    width: 68px;
+    height: 68x; /*another way to style image feature*/
+
+}
+
+.category{
+    margin-bottom: 16px;
+}
+
+.main{
+    display: grid; 
+    /* display two elements side by side,  and we want to specify one of their width then we need to use grid*/
+    grid-template-columns: 250px 1fr; /* 250px is for the first column, and 1fr is for the second column covering the remaining space */
+    gap: 48px; /* space between each column*/
+
+
+}
+
+@media(max-width: 900px){
+    .main{
+        grid-template-columns: 1fr;
+        /* only one column, occupy the entir space */
+    }
+}
+
+body{
+    padding: 40px; /*this is only happening because we have done the global reset*/
+    background-color: #292524;
+    color: #fafaf9; /* body's child elements will inherit this value but not all child elements*/
+    /* most elements inherited white color but buttons and input values they don't becasue they are special elements*/
+    /* don't override */
+    text-transform: uppercase;
+    font-family: "Sono", sans-serif;
+    padding: 48px 64px;
+
+}
+
+
+h1{
+    font-size: 42px;
+    text-transform: uppercase;
+    /*text-align: center; this doesn't work for inline elements*/
+    font-family: "Coiny", sans-serif;
+    /*如果第一个coiny，户界面没法显示，那就显示sans-serif*/
+    /*you can find font on google font*/
+    
+    /*six figure, and every figure is hexadecimal 1~f . first two number for R, second two for G, the rest for B*/
+    /*you can find color palettes on tailwind*/
+
+    line-height: 1;
+    margin-top: 6px;
+    margin-left: 10px;
+}
+
+.dashBoard{
+    background-color: #44403c;
+    font-size: 20px;
+    line-height: 1.4;
+    margin-bottom: 16px; /*margin outside the box*/
+    letter-spacing: -1px;
+
+    padding-top: 16px;
+    padding-bottom: 16px;
+    padding: 16px 24px; /*2*/  /*1 equals to 2*/
+
+
+    display: flex;
+    align-items: center;
+    gap: 24px;
+    border-radius: 16px;
+
+}   
+
+@media(max-width: 1200px){
+    /* for all the elements that are smaller than 1200px, we would want the code here to apply */
+    .dashboard{
+        flex-direction: column;  /* 竖着排列 */
+        align-items: flex-end; /*向右看齐*/
+        gap: 12px;  /* 每排之间的gap */
+    }
+
+}
+
+
+.tag{ 
+    /* it's an inline element */
+    text-transform: uppercase;
+    font-family: "Coiny", sans-serif;
+    /* write the color of tags inside the html elemets 因为不同的tag颜色不一样*/
+    padding-top: 3px;
+    padding-left: 10px;
+    padding-right: 10px;
+    border-radius: 100px; /* make the tag conor round */
+    
+}
+
+.vote-btn{
+    margin-left: auto;
+    /* auto -> make the buttons all the way to the right */
+   
+    flex-shrink: 0;  /* dont allow this element to shrink */
+    
+
+    display: flex;
+    gap: 8px;
+}
+
+.vote-btn button{  /* all the button inside vote-btn */
+    border: none;
+    background-color: #78716c;
+    font-size: 18px;
+    padding: 6px 12px;
+    border-radius: 100px;
+    font-family: inherit;
+    font-weight: 700; /* its just like bold */
+    cursor: pointer;
+    transition: 0.3s;  /* hover time */
+
+}
+
+.vote-btn button:hover{
+    background-color: #292524;
+}
+
+.btn{
+    /* button doesn't inherit anything */
+    border: none;
+    font-family: 'Coiny' , sans-serif;
+    line-height: 1;
+    text-transform: uppercase;
+    font-size: 17px;
+    padding: 16px 0 13px; /* top, left and right, bottom */
+    background-image: linear-gradient(135deg,#ef4444,#db2777,#f97316,#eab308,#8b5cf6,#3b82f6,#16a34a);
+    color:inherit;
+    transition: 0.4s; /* time of btn hover effect */
+    border-radius: 50px; /*make the corner round*/
+    cursor: pointer; /* change cursor into a hand when hover over the button  */
+}
+
+.btn:hover{
+    /* hover effect */
+    transform: scale(110%) rotate(-2deg);
+
+}
+
+.btn-large{
+
+    font-size: 30px;
+    /* btn will override btn because btn-large is in the back of btn */
+
+    padding: 20px 32px 17px;
+}
+
+ul{
+    /* remove bullet points from list */
+    list-style: none; 
+}
+
+.btn-all-categories{
+    margin-bottom:16px;
+    width: 100%;  /* the perctage is in relation to its parent element*/  
+}
+
+.btn-catergory{
+    width: 100%;
+    background-image: none ;
+
+}
+
+
+
+@media (max-width: 1000px) {
+    body{
+        padding: 32px 48px;
+    }
+
+}
+
+
+.add-form {
+    background-color: #44403c;
+    margin-bottom: 40px;
+    /* border: 4px dashed red; */
+    padding: 16px 40px;
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    border-radius: 16px;
+
+}
+
+.add-form input, 
+.add-form select{
+    width: 220px;
+    background-color: #78716c;
+    border: none;
+    border-radius: 100px;
+    padding: 16px;
+    font-size: 18px;
+    color: inherit;
+    font-family: inherit;
+}
+
+.add-form input::placeholder{/* ::means pseudo elements, which is not an actual elements that exists */
+
+    color: #a8a29e;
+
+}
+
+.add-form input:first-child{
+    
+    flex-grow: 1;
+    /* make the first input element take all the space that it wants to*/
+
+}
+
+.add-form span{
+    font-weight: 600;
+    font-size: 18px;
+    margin-right: 18px;
+
+}
+
+@media (max-width: 1000px) {
+    body{
+        padding: 32px 48px;
+    }
+    .add-form{
+        flex-direction: column;
+        align-items: stretch; 
+    }
+    .add-form input,
+    .add-form select{
+        width: auto;       
+    }
+}
+
+.hidden{
+    display: none !important; /* important -> then this style will always take priority over other one we are applying, cannot be overrided*/  
+}

@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>AcademicOS</title>
+
+        <!--google font link !-->
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Coiny&family=Sono:wght@400;600;700&display=swap" rel="stylesheet">
+        <link href="style.css" rel="stylesheet" />
+    </head>
+
+    
+    <body>
+        <div class="container">
+            <header class="header">
+                <div class="logo">
+                    <img src="logo.png" height="68" width=""68/ alt="AcademicOS Logo">
+                    <h1>AcademicOS</h1>
+                </div>
+                <!-- ADD buttom -->
+                <button class="btn btn-large btn-open">ADD</button>
+            </header>
+            
+            <!-- add from -->
+            <form class="add-form f">
+                <input type="text" placeholder="To do"/>
+                <input type="text" placeholder="TrustWorthy source..."/>
+                <select>
+                    <option value="">Choose categorty</option>
+                    <option value="Project">Project</option>
+                    <option value="Task">Task</option>
+                    <option value="Goal">Goal</option>
+                    <option value="FinanObjectivece">Objective</option>
+                </select>
+                <button class="btn btn-large ">post</button> <!-- btn-large will add up on the top of btn -->
+            </form>
+
+            <main class="main">
+                <!-- side bar -->
+                <aside>
+                    <ul>
+                        <li class = "category"><button class="btn btn-all-categories">All</button></li>
+                        <li class = "category"><button class="btn btn-catergory"
+                            style="background-color: #3b82f6;">Task</button></li>
+                        <li class = "category"><button class="btn btn-catergory"
+                            style="background-color: #16a34a;">Project</button></li>
+                        <li class = "category"><button class="btn btn-catergory"
+                             style="background-color: #8b5cf6;">Goal</button></li>
+                        <li class = "category"><button class="btn btn-catergory"
+                            style="background-color: #db2777;">Objective</button></li>
+
+                             
+                        </ul>
+                </aside>
+
+                <!-- main section of the page-->
+                <section>
+
+                    <ul class = dashBoard-list>
+                        <li class = "dashBoard"><!--list item-->
+                            <p> 
+                                React is being developed by Meta (formerly facebook) 
+                                <a href="https://opensource.fb.com/"target="_blank">(source)</a> <!--a stands for anchor-->
+                            </p>
+
+                            <span class="tag"
+                            style="background-color: #3b82f6;">Task</span>
+
+                            <div class="vote-btn">
+                                <button>👍<strong>24</strong></button> <!--strong equals bold-->
+                                <button>😶‍🌫️<strong>9</strong></button>
+                                <button>🚫<b>4</b></button>
+                            </div>
+                        </li>
+
+                        <li class="dashBoard">
+                            <p>
+                                Millennial dads spend 3 times as much time 
+                                with their kids than their fathers spent with them. 
+                                In 1982, 43% of fathers had never 
+                                changed a diaper. Today, that number is down to 3%"
+                                <a href ="https://www.mother.ly/parenting/millennial-dads-spend-more-time-with-their-kids"target="_blank">(source)</a>  
+                            </p>
+
+                            <span class="tag"
+                            style="background-color: #16a34a;">Project</span>
+
+                            <div class="vote-btn">
+                                <button>👍<strong>11</strong></button>
+                                <button>😶‍🌫️<strong>2</strong></button>
+                                <button>🚫<b>0</b></button>
+                            </div>
+                        </li>  
+                    </ul>
+
+                </section>
+
+            </main>
+        </div>
+        <script src="scrip.js"> </script>
+    </body>
+</html>
