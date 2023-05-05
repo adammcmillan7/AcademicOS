@@ -7,8 +7,8 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <module name="demo" />
-        <module name="AcademicOS" />
         <module name="AcademicLifeOS" />
+        <module name="AcademicOS" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
@@ -17,12 +17,8 @@
   </component>
   <component name="JavacSettings">
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
-      <module name="demo" options="-parameters" />
-    </option>
-  </component>
-  <component name="JavacSettings">
-    <option name="ADDITIONAL_OPTIONS_OVERRIDE">
       <module name="AcademicLifeOS" options="-parameters" />
+      <module name="AcademicOS" options="-parameters" />
     </option>
   </component>
 </project>
